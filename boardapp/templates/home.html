@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>방명록</title>
+</head>
+<body>
+    
+<h1>동방 방명록</h1>
+
+<form action="{% url 'submit' %}">
+<p>메세지: <input type="text" name="message"></p>
+<p>작성자: <input type="text" name="writer"></p>
+<p>등록일: <input type="date" name="date"><input type="submit" value="등록하기"></p>
+</form>
+
+<table border="1">
+<tr>
+    <th>메세지</th>
+    <th>작성자</th>
+    <th>날짜</th>
+</tr>
+{%for s in savings.all %}
+<tr>
+    <td>{{s.message}}</td>
+    <td>{{s.writer}}</td>
+    <td>{{s.pub_date}}</td>
+</tr>
+</table>
+{% endfor %}
+
+</body>
+</html>
+
